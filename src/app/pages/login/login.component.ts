@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
       size: 'large',
       shape: 'rectangle',
       type: 'standard',
+      width: '100%',
       text: 'Sign in with Google'
     })
   }
