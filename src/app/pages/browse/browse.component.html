@@ -4,4 +4,14 @@
 
 <app-banner />
 
+<app-movie-carousel [videoContents]="movies" [title]="'Popular on Netflix'" />
+
+<app-movie-carousel [videoContents]="tvShows" [title]="'TV Shows'" />
+
+<app-movie-carousel [videoContents]="nowPlayingMovies" [title]="'Now Playing Movies'" />
+
 <app-movie-carousel [videoContents]="popularMovies" [title]="'Popular Movies'" />
+
+<app-movie-carousel [videoContents]="topRatedMovies" [title]="'Top Rated Movies'" />
+
+<app-movie-carousel [videoContents]="upcomingMovies" [title]="'Upcoming Movies'" />
