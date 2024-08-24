@@ -1,5 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 const options = {
   params: {
@@ -11,8 +12,7 @@ const options = {
   },
   headers: {
     accept: 'application/json',
-    // Authorization: 'Bearer ' + process.env['TMDB_API_KEY'] 
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZDkwMzQ3MWU1MzhiYWI0YmZkOTBkNTVkYjVmZWZmNSIsIm5iZiI6MTcyNDI1Mzk1Mi4zNTg2OTEsInN1YiI6IjY2YzQwNzdhMTBiNDM0OGRkMzk3MDI2MCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.mn8vYrJ7CjrRETIjqBTuo0W-ME50P6-BiuP0pkgwOjw'
+    Authorization: `Bearer ${environment.tmdbApiKey}`
   }
 }
 @Injectable({

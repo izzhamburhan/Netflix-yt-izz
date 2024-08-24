@@ -43,3 +43,4 @@ Thumbs.db
 
 # Key Stores
 .env
+src/environments/

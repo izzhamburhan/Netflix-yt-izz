@@ -48,8 +48,8 @@ export class BrowseComponent implements OnInit {
     forkJoin(this.sources)
     .pipe(
       map(([movies, tvShows, nowPlaying, upcoming, popular, topRated])=>{
-        this.bannerDetail$ = this.movieService.getBannerDetail(movies.results[1].id);
-        this.bannerVideo$ = this.movieService.getBannerVideo(movies.results[1].id);
+        this.bannerDetail$ = this.movieService.getBannerDetail(movies.results[0].id);
+        this.bannerVideo$ = this.movieService.getBannerVideo(movies.results[0].id);
         return {movies, tvShows, nowPlaying, upcoming, popular, topRated}
       })
     ).subscribe((res:any) => {
@@ -59,9 +59,16 @@ export class BrowseComponent implements OnInit {
         this.popularMovies = res.popular.results as IVideoContent[];
         this.upcomingMovies = res.upcoming.results as IVideoContent[];
         this.topRatedMovies = res.topRated.results as IVideoContent[];
+        this.getMovieKey();
     })
   }
 
+  getMovieKey() {
+    this.movieService.getBannerVideo(this.movies[0].id)
+    .subscribe(res=>{
+      console.log(res);
+    })
+  }
   signOut() {
     sessionStorage.removeItem("LoggedInUser"); // remove the user from the session
     this.auth.signOut();
